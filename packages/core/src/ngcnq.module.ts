@@ -1,17 +1,18 @@
-import {ModuleWithProviders, NgModule} from '@angular/core';
-import {NgCnqCommand} from './services/commands.service';
-import {NgCnqStore} from "./services/store.service";
-import {NgCnqQuery} from "./services/query.service";
-import {NgCnqState} from "./providers/store.provider";
+import {ModuleWithProviders, NgModule, Optional, SkipSelf} from '@angular/core';
+import {CommandRunner} from './services/commands.service';
+import {Store} from "./services/store.service";
+import {QueryRunner} from "./services/query.service";
+import {INITIAL_STATE} from "./providers/store.provider";
+import {StateManager} from "./services/state.service";
 
 
 @NgModule({
     imports: [],
     providers: [
-        NgCnqStore,
-        NgCnqCommand,
-        NgCnqQuery,
-
+        Store,
+        CommandRunner,
+        QueryRunner,
+        StateManager
     ]
 })
 export class NgCnqModule {
@@ -20,10 +21,18 @@ export class NgCnqModule {
             ngModule: NgCnqModule,
             providers: [
                 {
-                    provide: NgCnqState,
+                    provide: INITIAL_STATE,
                     useValue: clientState
                 }
             ]
         };
+    }
+
+    constructor(@Optional() @SkipSelf() parentModule?: NgCnqModule) {
+        if (parentModule) {
+            throw new Error(
+                'NgCnqModule is already loaded. Import it in the AppModule only'
+            );
+        }
     }
 }

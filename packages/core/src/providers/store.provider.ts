@@ -1,1 +1,1 @@
-export class NgCnqState {}
+export class INITIAL_STATE {}

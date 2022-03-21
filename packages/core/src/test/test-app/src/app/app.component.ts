@@ -1,5 +1,5 @@
 import {Component} from '@angular/core';
-import {NgCnqQuery} from "../../../../services/query.service";
+import {QueryRunner} from "../../../../services/query.service";
 import {AppState} from "./app.module";
 
 @Component({
@@ -11,7 +11,7 @@ export class AppComponent {
   title = 'test-app';
   data: string;
 
-  constructor(private readonly query: NgCnqQuery<AppState>) {
+  constructor(private readonly query: QueryRunner<AppState>) {
     this.data = query.run(state => state.address.street);
   }
 

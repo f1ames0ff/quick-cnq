@@ -1,16 +1,18 @@
-import {Injectable} from '@angular/core';
+import {Inject, Injectable} from '@angular/core';
 import {Command} from "../models/Command";
-import {NgCnqStore} from "./store.service";
+import {INITIAL_STATE} from "../providers/store.provider";
+import {State} from "../types/state.type";
+import {StateManager} from "./state.service";
 
-@Injectable({
-    providedIn: 'platform',
-    deps: [NgCnqStore]
-})
-export class NgCnqCommand {
-    constructor() {
-    }
+@Injectable()
+export class CommandRunner<S extends State> {
+    constructor(
+        @Inject(INITIAL_STATE) private readonly state: S,
+        private  readonly stateManager :StateManager<S>,
 
-    execute(command: Command){
+    ) {}
 
+    run({ data }: Command<S>){
+        this.stateManager.mutate(data);
     }
 }

@@ -1,18 +1,17 @@
 import {Inject, Injectable} from "@angular/core";
-import {NgCnqStore} from "./store.service";
-import {NgCnqState} from "../providers/store.provider";
+import {INITIAL_STATE} from "../providers/store.provider";
 import {State} from "../types/state.type";
+import {StateSelector} from "../types/state-selector.type";
+import {NgCnqQueryRunner} from "./types/ng-cnq-query-runner.interface";
 
 
-@Injectable({
-    providedIn: 'platform',
-    deps: [NgCnqStore]
-})
-export class NgCnqQuery<S extends State> {
-    constructor(@Inject(NgCnqState) private readonly state: S) {
-    }
+@Injectable()
+export class QueryRunner<S extends State> implements NgCnqQueryRunner {
+    constructor(
+        @Inject(INITIAL_STATE) private readonly state: S
+    ) {}
 
-    run<F extends (param: S) => unknown>(selector: F): ReturnType<F> {
-        return selector(this.state) as ReturnType<F>;
+    run(selector: StateSelector<S>) {
+        return selector(this.state);
     }
 }
