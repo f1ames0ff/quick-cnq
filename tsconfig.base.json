@@ -13,9 +13,8 @@
     "lib": ["es2017", "dom"],
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
-    "baseUrl": "./ngcnq",
+    "baseUrl": "./",
     "paths": {}
   },
-  "exclude": [
-    "ngcnq/node_modules", "tmp"]
+  "exclude": ["node_modules", "tmp"]
 }

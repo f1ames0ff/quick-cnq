@@ -1,0 +1,43 @@
+{
+  "root": "libs/angular/core/",
+  "sourceRoot": "libs/angular/core/src",
+  "projectType": "library",
+  "targets": {
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": [],
+      "dependsOn": [
+        {
+          "target": "build",
+          "projects": "self"
+        }
+      ],
+      "options": {
+        "jestConfig": "libs/angular/core/jest.config.js",
+        "tsConfig": "libs/angular/core/tsconfig.spec.json"
+      }
+    },
+    "build": {
+      "executor": "@nrwl/js:tsc",
+      "outputs": ["dist/libs/angular/core"],
+      "dependsOn": [
+        {
+          "target": "build",
+          "projects": "dependencies"
+        }
+      ],
+      "options": {
+        "outputPath": "dist/libs/angular/core",
+        "tsConfig": "libs/angular/core/tsconfig.json",
+        "main": "libs/angular/core/src/main.ts"
+      },
+      "configurations": {
+        "production": {
+          "tsConfig": "libs/angular/core/tsconfig-prod.lib.json"
+        }
+      }
+    }
+  },
+  "tags": ["@quickcnq:core"],
+  "implicitDependencies": []
+}
