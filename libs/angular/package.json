@@ -2,13 +2,15 @@
   "name": "quick-cnq-ng",
   "version": "0.1.0",
   "private": true,
+  "workspaces": [
+    "core",
+    "test-app"
+  ],
   "scripts": {
     "ng": "ng",
-    "start:test-app": "ng serve --project test-app",
-    "build": "ng build",
-    "build:lib:core": "ng build --project lib-core",
-    "build:lib:test": "ng build --project test-lib",
-    "watch:lib:core": "ng build --project lib-core --watch --configuration development",
+    "start:app": "ng serve --project test-app",
+    "build:lib": "ng build --configuration=production",
+    "watch:lib": "ng build --watch --configuration development",
     "test": "ng test"
   },
   "dependencies": {

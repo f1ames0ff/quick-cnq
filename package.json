@@ -3,19 +3,16 @@
   "version": "0.1.0",
   "license": "MIT",
   "private": true,
+  "workspaces": [
+    "libs/*"
+  ],
   "scripts": {
     "build:lib:core": "nx run libs:angular-core --dev"
   },
   "dependencies": {},
   "devDependencies": {
     "@angular/cli": "13.3.0",
-    "@nrwl/cli": "latest",
-    "@nrwl/devkit": "13.9.3",
-    "@nrwl/js": "13.9.3",
-    "@nrwl/workspace": "latest",
     "@types/node": "16.11.7",
-    "nx": "latest",
-    "prettier": "^2.5.1",
     "typescript": "~4.5.2"
   }
 }

@@ -1,0 +1,10 @@
+{
+  "name": "@quick-cnq/react",
+  "version": "0.0.0",
+  "keywords": [
+    "React",
+    "cnq"
+  ],
+  "dependencies": {
+  }
+}

@@ -1,8 +1,8 @@
-import {ChangeDetectionStrategy, ChangeDetectorRef, Component, OnInit} from '@angular/core';
-import {User} from "../../services/user.service";
-import {Store} from "../../features/store/services";
-import {AppState} from "../../features/store/store-feature.module";
-import {AppCommands} from "../../types/commands.enum";
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, OnInit } from '@angular/core';
+import { User } from '../../services/user.service';
+import { AppState } from '../../features/store/store-feature.module';
+import { AppCommands } from '../../types/commands.enum';
+import { Store } from '../../../../../core/src/services';
 
 @Component({
     selector: 'app-list',

@@ -1,6 +1,6 @@
-import {NgModule} from "@angular/core";
-import {NgCnqModule} from "./public-api";
-import {User} from "../../services/user.service";
+import { NgModule } from '@angular/core';
+import { User } from '../../services/user.service';
+import { NgCnqModule } from '../../../../../core/src/ngcnq.module';
 
 export const defState = {
     user: {

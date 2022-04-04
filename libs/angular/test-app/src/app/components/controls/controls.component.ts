@@ -1,7 +1,7 @@
-import {Component} from '@angular/core';
-import {Store} from '../../features/store/services';
-import {AppState} from "../../features/store/store-feature.module";
-import {UserService} from "../../services/user.service";
+import { Component } from '@angular/core';
+import { AppState } from '../../features/store/store-feature.module';
+import { UserService } from '../../services/user.service';
+import { Store } from '../../../../../core/src/services';
 
 @Component({
     selector: 'app-controls',

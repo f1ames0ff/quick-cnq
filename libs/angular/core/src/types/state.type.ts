@@ -1,1 +1,1 @@
-export type State = Record<string, unknown>;
+export type State = { [K: string] : unknown };

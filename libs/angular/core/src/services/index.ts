@@ -1,7 +1,6 @@
-export * from './private/commands.service';
-export * from './private/query.service';
+export * from '../classes/command-runner.class';
+export * from '../classes/query-runner.class';
 
-export * from './shared/state.service';
+export * from './shared/state-manager.service';
 export * from './shared/store.service';
 
-export * from './types';

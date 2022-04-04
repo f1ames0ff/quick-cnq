@@ -3,20 +3,24 @@ import {State} from "../../types";
 import {INITIAL_STATE} from "../../providers";
 import {CommandData} from "../../models";
 
-@Injectable({ providedIn: 'platform' })
+@Injectable({
+    providedIn: 'root'
+})
 export class StateManager<S extends State> {
-    private value: S;
+    private stateValue: S;
 
-    constructor(@Inject(INITIAL_STATE) private readonly initialState: S) {
-        this.value = this.initialState;
+    constructor(
+        // @Inject(INITIAL_STATE) private readonly initialState: S
+    ) {
+        this.stateValue = /*this.initialState;*/ {} as S
     }
 
     get state() {
-        return this.value;
+        return this.stateValue;
     }
 
     private set state(value: S) {
-        this.value = value;
+        this.stateValue = value;
     }
 
     mutate(data: CommandData<S>) {
