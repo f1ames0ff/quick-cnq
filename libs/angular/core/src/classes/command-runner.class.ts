@@ -4,7 +4,10 @@ import { StateManager } from '../services';
 
 
 export class CommandRunner<S extends State> {
-    constructor(private stateManager: StateManager<S>) {
+    private stateManager: StateManager<S>;
+
+    constructor(stateManager: StateManager<S>) {
+     this.stateManager = stateManager;
     }
 
     run({data}: Command<S>) {

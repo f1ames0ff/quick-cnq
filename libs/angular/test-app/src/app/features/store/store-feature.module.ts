@@ -13,7 +13,7 @@ export type AppState = typeof defState;
 
 @NgModule({
     imports: [
-        NgCnqModule.forRoot(defState),
+        // NgCnqModule.forRoot(defState),
     ]
 })
 export class AppStoreModule {}

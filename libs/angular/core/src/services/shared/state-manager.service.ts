@@ -1,26 +1,28 @@
-import {Inject, Injectable} from "@angular/core";
-import {State} from "../../types";
-import {INITIAL_STATE} from "../../providers";
-import {CommandData} from "../../models";
+import { Inject, Injectable } from '@angular/core';
+import { State } from '../../types';
+import { CommandData } from '../../models';
+import { NgCnqModule } from '../../ngcnq.module';
+import { INITIAL_STATE } from '../../providers';
 
 @Injectable({
-    providedIn: 'root'
+    providedIn: NgCnqModule
 })
 export class StateManager<S extends State> {
-    private stateValue: S;
+    // private stateValue: S;
 
     constructor(
         // @Inject(INITIAL_STATE) private readonly initialState: S
     ) {
-        this.stateValue = /*this.initialState;*/ {} as S
+        // this.stateValue = this.initialState;
     }
 
     get state() {
-        return this.stateValue;
+        // return this.stateValue;
+        return {} as S;
     }
 
     private set state(value: S) {
-        this.stateValue = value;
+        // this.stateValue = value;
     }
 
     mutate(data: CommandData<S>) {

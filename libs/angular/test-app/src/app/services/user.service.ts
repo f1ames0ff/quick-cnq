@@ -18,7 +18,7 @@ export class UserService {
 
     constructor(
       private readonly store: Store<AppState>,
-        private readonly httpClient: HttpClient,
+      private readonly httpClient: HttpClient,
     ) {
     }
 

@@ -3,7 +3,10 @@ import { StateManager } from '../services';
 
 
 export class QueryRunner<S extends State> {
-    constructor(private readonly stateManager: StateManager<S>) {
+    private readonly stateManager: StateManager<S>;
+
+    constructor(stateManager: StateManager<S>) {
+    this.stateManager = stateManager;
     }
 
     run<T extends StateSelector<S>>(selector: T): ReturnType<T> {

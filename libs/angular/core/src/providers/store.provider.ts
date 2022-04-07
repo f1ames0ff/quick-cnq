@@ -1,7 +1,4 @@
-import {Injectable, InjectionToken} from "@angular/core";
-import {State} from "../types";
+import { InjectionToken } from '@angular/core';
+import { State } from '../types';
 
-// export const STATE = new InjectionToken<State>('STATE');
-
-@Injectable()
-export class INITIAL_STATE {}
+export const INITIAL_STATE = new InjectionToken<State>('INITIAL_STATE');
